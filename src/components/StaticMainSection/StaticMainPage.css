@@ -1,0 +1,35 @@
+.static-main-page{
+    width:70%;
+    height: 100vh;
+    background-color: #DAE5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.static-main-page p:nth-child(2){
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 58px;
+    letter-spacing: 2%;
+    width: 650px;
+    text-align: center;
+    margin: 20px 0;
+}
+.static-main-page p:nth-child(3){
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 2%;
+    color: #292929;
+    width: 650px;
+    margin-bottom: 100px;
+}
+.static-main-page p:nth-child(4){
+    position: absolute;
+    bottom: 30px;
+    color: #292929;
+    font-size: 22px;
+    line-height: 32px;
+}

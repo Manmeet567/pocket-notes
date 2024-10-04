@@ -1,0 +1,91 @@
+.create-group-modal{
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    background-color: #2F2F2FBF;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-box{
+    width: 740px;
+    background-color: white;
+    border-radius: 6px;
+    padding: 30px 30px 15px
+}
+.create-box > p{
+    font-size: 29px;
+    font-weight: 500;
+    line-height: 46px;
+    letter-spacing: 3.5%;
+    margin-left: 20px;
+}
+
+.create-input{
+    margin: 15px 20px;
+    display: flex;
+    align-items: center;
+}
+.create-input > label{
+    font-size: 27.31px;
+    letter-spacing: 3.5%;
+    font-weight: 500;
+    line-height: 43.75%;
+}
+.create-input > input{
+    font-size: 23px;
+    border: 2px solid #cccccc;
+    border-radius: 22px;
+    padding: 8px 25px;
+    margin-left: 25px;
+    width: 435px;
+    outline: none;
+    color: #292929;
+}
+.create-input > input::placeholder{
+    color: #979797;
+}
+
+
+.choose-colors{
+    margin: 40px 20px 0;
+    display: flex;
+    align-items: center;
+}
+.choose-colors > span{
+    font-size: 27.31px;
+    font-weight: 500;
+    letter-spacing: 3.5%;
+    line-height: 43.75px;
+}
+.color-options{
+    margin-left: 25px;
+}
+.color-options button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border:none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.create-btn-section{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+.create-button{
+    width: 154px;
+    background-color: #001F8B;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 3.5%;
+    border-radius: 11px;
+    height: 38px;
+    border: none;
+    cursor: pointer;
+}

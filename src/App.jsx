@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState,useEffect } from 'react'
+import Sidebar from './components/Sidebar/Sidebar'
+import StaticMainSection from './components/StaticMainSection/StaticMainSection'
+import Modal from './components/CreateGroup/Modal';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [openModal, setOpenModal] = useState(false);
+  const [groups, setGroups] = useState([]);
+
+  useEffect(() => {
+    const storedGroups = JSON.parse(localStorage.getItem('groups'));
+    if (storedGroups) {
+      setGroups(storedGroups);
+    }
+  }, []);
+
+  const handleCreateGroup = (name, color) => {
+    const newGroup = {
+      id: uuidv4(), // Generate unique ID
+      name,
+      color,
+    };
+    const updatedGroups = [...groups, newGroup]; // Add new group to the groups array
+
+    setGroups(updatedGroups);
+    localStorage.setItem('groups', JSON.stringify(updatedGroups)); // Save updated groups to local storage
+    setOpenModal(false); // Close the modal after creation
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='app'>
+        <Sidebar setOpenModal={setOpenModal} />
+        <StaticMainSection />
+
+        {openModal && <Modal setOpenModal={setOpenModal} onCreateGroup={handleCreateGroup} />}
+    </div>
   )
 }
 
