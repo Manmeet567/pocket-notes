@@ -1,4 +1,4 @@
-import bg from '../../assets/bg.png';
+import bg from '../../assets/bg.svg';
 import lock from '../../assets/lock.png';
 import './StaticMainPage.css';
 
