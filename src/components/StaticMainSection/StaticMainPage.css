@@ -33,3 +33,15 @@
     font-size: 22px;
     line-height: 32px;
 }
+
+@media only screen and (max-width: 1535px) {
+    .static-main-page{
+      width: 70%;
+    }
+    .static-main-page p:nth-child(2){
+        font-size: 40px;
+    }
+    .static-main-page p:nth-child(3){
+        margin-bottom: 130px;
+    }
+  }
