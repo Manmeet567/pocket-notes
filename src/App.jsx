@@ -3,35 +3,45 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import StaticMainSection from "./components/StaticMainSection/StaticMainSection";
 import Modal from "./components/CreateGroup/Modal";
 import { v4 as uuidv4 } from "uuid";
+import NoteSection from "./components/NoteSection/NoteSection";
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
   const [groups, setGroups] = useState([]);
+  const [selectedGroup, setSelectedGroup] = useState(null);
 
   useEffect(() => {
-    const storedGroups = JSON.parse(localStorage.getItem("groups"));
-    if (storedGroups) {
-      setGroups(storedGroups);
-    }
+    const storedGroups = JSON.parse(localStorage.getItem("groups")) || [];
+    setGroups(storedGroups);
   }, []);
+
+  const handleGroupClick = (group) => {
+    setSelectedGroup(group);
+  };
 
   const handleCreateGroup = (name, color) => {
     const newGroup = {
-      id: uuidv4(), // Generate unique ID
+      id: uuidv4(),
       name,
       color,
     };
-    const updatedGroups = [...groups, newGroup]; // Add new group to the groups array
+    const updatedGroups = [...groups, newGroup];
 
     setGroups(updatedGroups);
-    localStorage.setItem("groups", JSON.stringify(updatedGroups)); // Save updated groups to local storage
-    setOpenModal(false); // Close the modal after creation
+    localStorage.setItem("groups", JSON.stringify(updatedGroups));
+    setOpenModal(false);
   };
 
   return (
     <div className="app">
-      <Sidebar setOpenModal={setOpenModal} groups={groups} />
-      <StaticMainSection />
+      <Sidebar
+        setOpenModal={setOpenModal}
+        groups={groups}
+        onGroupClick={handleGroupClick}
+        selectedGroup={selectedGroup}
+      />
+      {!selectedGroup && <StaticMainSection />}
+      {selectedGroup && <NoteSection selectedGroup={selectedGroup} />}
 
       {openModal && (
         <Modal setOpenModal={setOpenModal} onCreateGroup={handleCreateGroup} />

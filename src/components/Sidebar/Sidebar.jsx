@@ -1,13 +1,8 @@
 import "./Sidebar.css";
+import {getGroupIcon} from '../../utils/utils';
 
-function Sidebar({setOpenModal, groups}) {
+function Sidebar({ setOpenModal, groups, onGroupClick, selectedGroup }) {
 
-  const getGroupIcon = (name) => {
-    const words = name.split(" ");
-    const firstLetter = words[0][0].toUpperCase();
-    const lastLetter = words[words.length - 1][0].toUpperCase();
-    return firstLetter + lastLetter;
-  };
 
   return (
     <div className="sidebar">
@@ -17,16 +12,27 @@ function Sidebar({setOpenModal, groups}) {
 
       <div className="notes-group-list">
         <div className="group-list">
-          { groups.map((group) => (
-            <div className="group" key={group.id}>
-              <div className="group-icon" style={{backgroundColor:`${group.color}`}}>{getGroupIcon(group.name)}</div>
+          {groups.map((group) => (
+            <div
+              className={`group ${selectedGroup?.id === group.id ? "active-group" : ""}`}
+              key={group.id}
+              onClick={() => onGroupClick(group)}
+            >
+              <div
+                className="group-icon"
+                style={{ backgroundColor: `${group.color}` }}
+              >
+                {getGroupIcon(group.name)}
+              </div>
               <div className="group-title">{group?.name}</div>
             </div>
           ))}
         </div>
       </div>
 
-      <div onClick={() => setOpenModal(true)} className="add-icon">+</div>
+      <div onClick={() => setOpenModal(true)} className="add-icon">
+        +
+      </div>
     </div>
   );
 }
