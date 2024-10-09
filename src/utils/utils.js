@@ -12,14 +12,18 @@ export const getGroupIcon = (name) => {
 
 export const formatDateTime = (timestamp) => {
   const date = new Date(timestamp);
+  
+  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   const formattedDate = date.toLocaleDateString("en-GB", {
+    timeZone: userTimeZone, 
     day: "numeric",
     month: "short",
     year: "numeric",
   });
 
   const formattedTime = date.toLocaleTimeString("en-US", {
+    timeZone: userTimeZone, 
     hour: "numeric",
     minute: "numeric",
     hour12: true,

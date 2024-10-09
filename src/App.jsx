@@ -11,20 +11,6 @@ function App() {
   const [selectedGroup, setSelectedGroup] = useState(null);
 
   useEffect(() => {
-    const setAppHeight = () => {
-      const vh = window.innerHeight * 0.01; // Calculate 1vh in pixels
-      document.documentElement.style.setProperty('--vh', `${vh}px`); // Set the CSS variable
-    };
-
-    setAppHeight(); // Initial call
-    window.addEventListener('resize', setAppHeight); // Update on resize
-
-    return () => {
-      window.removeEventListener('resize', setAppHeight); // Cleanup
-    };
-  }, []);
-
-  useEffect(() => {
     const storedGroups = JSON.parse(localStorage.getItem("groups")) || [];
     setGroups(storedGroups);
   }, []);
