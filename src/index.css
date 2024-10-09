@@ -1,28 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; 
+.app{
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    position: relative;
 }
-
-.app {
-  width: 100%;
-  height: 100%; /* JavaScript will dynamically set the height to match the available viewport */
-  overflow: auto;
-  display: flex;
-  position: relative;
-}
-
 .hidden {
   display: none;
 }

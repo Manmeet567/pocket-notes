@@ -11,24 +11,6 @@ function App() {
   const [selectedGroup, setSelectedGroup] = useState(null);
 
   useEffect(() => {
-    function setAppHeight() {
-      const app = document.querySelector(".app");
-      app.style.height = `${window.innerHeight}px`;
-    }
-
-    // Set the initial height on mount
-    setAppHeight();
-
-    // Update height on resize and orientation change
-    window.addEventListener("resize", setAppHeight);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", setAppHeight);
-    };
-  }, []);
-
-  useEffect(() => {
     const storedGroups = JSON.parse(localStorage.getItem("groups")) || [];
     setGroups(storedGroups);
   }, []);
