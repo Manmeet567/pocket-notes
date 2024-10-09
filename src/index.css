@@ -7,6 +7,9 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+html{
+  height: 100%;
+}
 .app{
     width: 100%;
     height: 100vh;

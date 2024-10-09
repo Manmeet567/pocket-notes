@@ -1,6 +1,11 @@
 export const getGroupIcon = (name) => {
   const words = name.split(" ");
   const firstLetter = words[0][0].toUpperCase();
+
+  if (words.length === 1) {
+    return firstLetter;
+  }
+
   const lastLetter = words[words.length - 1][0].toUpperCase();
   return firstLetter + lastLetter;
 };
