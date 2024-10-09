@@ -3,8 +3,9 @@ import "./NoteSection.css";
 import { getGroupIcon, formatDateTime } from "../../utils/utils";
 import enabled from "../../assets/enabled-send.png";
 import disabled from "../../assets/diabled-send.png";
+import arrow from "../../assets/left-arrow.svg";
 
-function NoteSection({ selectedGroup }) {
+function NoteSection({ selectedGroup, onBack }) {
   const [note, setNote] = useState("");
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const [groupNotes, setGroupNotes] = useState([]);
@@ -57,6 +58,9 @@ function NoteSection({ selectedGroup }) {
   return (
     <div className="note-section">
       <nav>
+        <div className="back" onClick={onBack}>
+          <img src={arrow} alt="back" />
+        </div>
         <div
           className="nav-icon"
           style={{ backgroundColor: `${selectedGroup?.color}` }}

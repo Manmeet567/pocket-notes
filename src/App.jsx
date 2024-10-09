@@ -32,6 +32,10 @@ function App() {
     setOpenModal(false);
   };
 
+  const handleBack = () => {
+    setSelectedGroup(null);
+  };
+
   return (
     <div className="app">
       <Sidebar
@@ -40,8 +44,15 @@ function App() {
         onGroupClick={handleGroupClick}
         selectedGroup={selectedGroup}
       />
+
       {!selectedGroup && <StaticMainSection />}
-      {selectedGroup && <NoteSection selectedGroup={selectedGroup} />}
+
+      {selectedGroup && (
+        <NoteSection
+          selectedGroup={selectedGroup}
+          onBack={handleBack}
+        />
+      )}
 
       {openModal && (
         <Modal setOpenModal={setOpenModal} onCreateGroup={handleCreateGroup} />

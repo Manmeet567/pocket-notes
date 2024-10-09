@@ -1,11 +1,24 @@
+import { useState, useEffect } from "react";
 import "./Sidebar.css";
-import {getGroupIcon} from '../../utils/utils';
+import { getGroupIcon } from '../../utils/utils';
 
 function Sidebar({ setOpenModal, groups, onGroupClick, selectedGroup }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  // Detect screen size changes and update the state
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isMobile && selectedGroup ? "hidden" : ""}`}>
       <div className="title">
         <p>Pocket Notes</p>
       </div>

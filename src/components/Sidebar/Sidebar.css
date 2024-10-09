@@ -89,6 +89,8 @@
   font-weight: 500;
   letter-spacing: 2%;
   line-height: 28.13px;
+  word-break: break-word;  
+
 }
 
 @media only screen and (max-width: 1535px) {
@@ -110,5 +112,32 @@
     width: 80px;
     height: 80px;
     bottom: 45px;
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .sidebar{
+    width: 100%;
+  }
+  .title{
+    height: 12%;
+  }
+  .title > p{
+    font-size: 31.52px;
+  }
+  .group-icon{
+    font-size: 20px;
+    width: 62.01px;
+    height: 62.01px;
+  }
+  .group-title{
+    font-size: 18.6px;
+    line-height: 21.8px;
+  }
+  .add-icon{
+    width: 75px;
+    height: 75px;
+    bottom: 35px;
+    right: 25px;
   }
 }

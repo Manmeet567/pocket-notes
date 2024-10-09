@@ -17,6 +17,15 @@ nav {
   color: white;
 }
 
+nav > .back {
+  padding-left: 20px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: none;
+}
+
 .nav-icon {
   width: 68.9px;
   height: 68.9px;
@@ -67,6 +76,7 @@ nav {
   line-height: 28.83px;
   letter-spacing: 3.5%;
   color: black;
+  word-break: break-word;
 }
 .timestamp {
   display: flex;
@@ -142,17 +152,66 @@ nav {
     height: 50.9px;
     font-size: 20px;
   }
-  .nav-title{
+  .nav-title {
     font-size: 22px;
   }
-  .notes-display{
+  .notes-display {
     padding: 20px 30px;
   }
-  .create-note-form{
+  .create-note-form {
     height: 230px;
     min-height: 230px;
   }
-  .note-form > textarea{
+  .note-form > textarea {
     font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .note-section {
+    width: 100%;
+  }
+  nav {
+    height: 66px;
+  }
+  nav > .back {
+    display: flex;
+  }
+  .nav-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 16.8px;
+  }
+  .nav-title {
+    font-size: 16.72px;
+    line-height: 19.59px;
+  }
+  .note-text {
+    font-size: 13px;
+    line-height: 20.82px;
+  }
+  .timestamp {
+    font-size: 13.59px;
+    line-height: 13.27px;
+    letter-spacing: 2%;
+  }
+  .create-note-form {
+    height: 130px;
+    min-height: 130px;
+    padding: 15px;
+  }
+  .note-form {
+    background-color: #fff;
+    display: flex;
+  }
+  .note-form > textarea {
+    font-size: 17.71px;
+    padding: 10px;
+    min-width: 90%;
+    line-height: 20.75px;
+  }
+  .submit-btn > button > img {
+    width: 21px;
+    margin-top: 10px;
   }
 }
